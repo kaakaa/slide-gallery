@@ -9,11 +9,20 @@
 
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
+apply plugin: 'jetty'
+
+def defaultEncoding = 'UTF-8'
+
+httpPort = 1234
 
 // In this section you declare where to find the dependencies of your project
 repositories {
     // jcenter()
     mavenCentral()
+}
+
+configurations {
+    all*.exclude module: 'servlet-api'
 }
 
 dependencies {
